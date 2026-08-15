@@ -1,0 +1,34 @@
+/* =========================================================
+   PELLATIERO IMÓVEIS — tokens.css
+   Design tokens: cor, tipografia, raio, sombra
+   Paleta: verde musgo escuro + branco
+   ========================================================= */
+:root{
+  /* --- Cor --- */
+  --moss-950:#101a0c;
+  --moss-900:#16230f;
+  --moss-800:#1f3016;
+  --moss-700:#2b4020;
+  --moss-600:#3a542b;
+  --moss-500:#4d6d3b;
+  --moss-100:#eef1e6;
+  --moss-50:#f6f8f1;
+  --white:#ffffff;
+  --ink:#161a13;
+  --ink-soft:#4c5346;
+  --line:#dde3d4;
+  --danger:#8c3a2b;
+
+  /* --- Tipografia --- */
+  --font-display:"Fraunces", "Iowan Old Style", serif;
+  --font-body:"Work Sans", "Segoe UI", sans-serif;
+  --font-mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  /* --- Escala --- */
+  --radius-s:6px;
+  --radius-m:14px;
+  --radius-l:28px;
+  --shadow-card:0 10px 30px -14px rgba(16,26,12,.35);
+  --shadow-pop:0 24px 60px -20px rgba(16,26,12,.5);
+  --container:1200px;
+}

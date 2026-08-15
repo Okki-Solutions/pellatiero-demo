@@ -1,0 +1,48 @@
+/* =========================================================
+   PELLATIERO IMÓVEIS — main.css
+   Tipografia base, containers, botões, textos utilitários
+   ========================================================= */
+body{
+  font-family:var(--font-body);
+  color:var(--ink);
+  background:var(--white);
+}
+.container{max-width:var(--container);margin:0 auto;padding:0 24px;}
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--moss-600);
+}
+.section{padding:88px 0;}
+.section-head{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:24px;
+  margin-bottom:40px;flex-wrap:wrap;
+}
+.section-head h2{
+  font-family:var(--font-display);font-size:clamp(28px,3.4vw,42px);font-weight:600;
+  margin:6px 0 0;color:var(--moss-950);
+}
+.section-alt{background:var(--moss-50);}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 26px;border-radius:999px;font-size:14.5px;font-weight:600;
+  border:1px solid transparent;transition:transform .18s ease, background .18s ease, color .18s ease, border-color .18s ease;
+}
+.btn:active{transform:scale(.97);}
+.btn-primary{background:var(--moss-800);color:var(--white);}
+.btn-primary:hover{background:var(--moss-950);}
+.btn-outline{background:transparent;color:var(--moss-900);border-color:var(--moss-800);}
+.btn-outline:hover{background:var(--moss-800);color:var(--white);}
+.btn-ghost{background:transparent;color:var(--white);border-color:rgba(255,255,255,.5);}
+.btn-ghost:hover{background:rgba(255,255,255,.14);}
+.btn-block{width:100%;}
+.btn-sm{padding:9px 16px;font-size:13px;}
+
+.demo-banner{
+  background:var(--moss-900);color:var(--white);text-align:center;font-size:13px;padding:9px 18px;
+}
+.demo-banner strong{color:#fff;}
+.demo-banner a{text-decoration:underline;}

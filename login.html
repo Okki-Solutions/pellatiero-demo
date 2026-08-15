@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrar ou criar conta · Pellatiero Imóveis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/reset.css"><link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css"><link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css"><link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">PI</span><span class="brand-name">Pellatiero<br><small>Imóveis · Passo Fundo</small></span></a>
+    <nav class="main-nav"><a href="index.html">Início</a></nav>
+    <div class="header-actions"></div>
+  </div>
+</header>
+
+<div class="auth-shell">
+  <div class="auth-card">
+    <div class="search-tabs" style="padding:0 0 14px;gap:8px">
+      <button class="search-tab is-active" id="tab-entrar" style="border-radius:999px">Entrar</button>
+      <button class="search-tab" id="tab-cadastro" style="border-radius:999px">Criar conta</button>
+    </div>
+
+    <div id="painel-entrar">
+      <h1>Bem-vindo de volta</h1>
+      <p class="lead">Entre para salvar favoritos, receber alertas de novos imóveis e acompanhar suas visitas.</p>
+      <form id="form-login">
+        <div class="form-group"><label for="email">E-mail</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+        <div class="form-group"><label for="senha">Senha</label><input id="senha" name="senha" type="password" required minlength="8" autocomplete="current-password"></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+          <label class="form-check"><input type="checkbox"> Manter conectado</label>
+          <a href="#" style="font-size:13px;color:var(--moss-700);font-weight:600">Esqueci minha senha</a>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Entrar</button>
+      </form>
+    </div>
+
+    <div id="painel-cadastro" style="display:none">
+      <h1>Criar sua conta</h1>
+      <p class="lead">Leva menos de um minuto. Você poderá favoritar imóveis, salvar buscas e receber alertas.</p>
+      <form id="form-cadastro">
+        <div class="form-group"><label for="nome">Nome completo</label><input id="nome" name="nome" required autocomplete="name"></div>
+        <div class="form-group"><label for="email2">E-mail</label><input id="email2" name="email" type="email" required autocomplete="email"></div>
+        <div class="form-group"><label for="tel">Telefone / WhatsApp</label><input id="tel" name="telefone" required autocomplete="tel"></div>
+        <div class="form-group"><label for="senha2">Criar senha</label><input id="senha2" name="senha" type="password" required minlength="8" autocomplete="new-password">
+          <p class="form-hint">Sua senha nunca é armazenada em texto simples.</p></div>
+        <label class="form-check" style="margin-bottom:20px"><input type="checkbox" required> Aceito os Termos de uso e a Política de Privacidade</label>
+        <button class="btn btn-primary btn-block" type="submit">Criar minha conta</button>
+      </form>
+    </div>
+
+    <div class="security-note">
+      🔒 <span>Este é um protótipo estático — os dados ficam só no seu navegador (localStorage), simulando a experiência real. Na versão real, a autenticação roda no <strong>Supabase Auth</strong>. Veja <a href="tecnologias.html" style="color:var(--moss-800);font-weight:600">Tecnologias</a>.</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelector("#tab-entrar").addEventListener("click", () => {
+    document.querySelector("#tab-entrar").classList.add("is-active");
+    document.querySelector("#tab-cadastro").classList.remove("is-active");
+    document.querySelector("#painel-entrar").style.display = "";
+    document.querySelector("#painel-cadastro").style.display = "none";
+  });
+  document.querySelector("#tab-cadastro").addEventListener("click", () => {
+    document.querySelector("#tab-cadastro").classList.add("is-active");
+    document.querySelector("#tab-entrar").classList.remove("is-active");
+    document.querySelector("#painel-cadastro").style.display = "";
+    document.querySelector("#painel-entrar").style.display = "none";
+  });
+  if (window.location.hash === "#cadastro") document.querySelector("#tab-cadastro").click();
+</script>
+<script src="js/storage-safe.js"></script>
+<script src="js/auth-mock.js"></script>
+<script>document.addEventListener("DOMContentLoaded", initFormsMock);</script>
+</body>
+</html>

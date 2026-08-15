@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel administrativo · Pellatiero Imóveis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/reset.css"><link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css"><link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css"><link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+<div class="demo-banner"><strong>Prévia do painel administrativo</strong> — nada é salvo de verdade aqui. Na versão real, o acesso exige login de administrador autenticado pelo Supabase.</div>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand"><span class="brand-mark">PI</span><span class="brand-name">Pellatiero<br><small>Painel administrativo</small></span></a>
+    <nav class="main-nav"><a href="index.html">Voltar ao site</a></nav>
+    <div class="header-actions"></div>
+  </div>
+</header>
+
+<div class="admin-shell">
+  <aside class="admin-side">
+    <span class="eyebrow">Administração</span>
+    <nav class="admin-nav">
+      <a href="#" class="active">📊 Visão geral</a>
+      <a href="#imoveis">🏠 Imóveis</a>
+      <a href="#novo">➕ Cadastrar imóvel</a>
+      <a href="#">👤 Usuários</a>
+      <a href="tecnologias.html">🔒 Segurança &amp; tecnologia</a>
+    </nav>
+  </aside>
+  <main class="admin-main">
+    <div class="admin-header"><h1>Visão geral</h1><a href="#novo" class="btn btn-primary btn-sm">+ Novo imóvel</a></div>
+    <div class="stat-row">
+      <div class="stat-card"><div class="num">6</div><div class="lbl">Imóveis ativos</div></div>
+      <div class="stat-card"><div class="num">3</div><div class="lbl">Em destaque na home</div></div>
+      <div class="stat-card"><div class="num">128</div><div class="lbl">Visitas esta semana</div></div>
+      <div class="stat-card"><div class="num">14</div><div class="lbl">Leads recebidos</div></div>
+    </div>
+
+    <div id="imoveis" style="margin-bottom:40px">
+      <div class="admin-header"><h1 style="font-size:20px">Imóveis cadastrados</h1></div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Foto</th><th>Imóvel</th><th>Negociação</th><th>Preço</th><th>Posição na home</th><th>Ações</th></tr></thead>
+          <tbody id="admin-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="novo">
+      <div class="admin-header"><h1 style="font-size:20px">Cadastrar novo imóvel</h1></div>
+      <form class="form-card" onsubmit="event.preventDefault(); alert('Demonstração: na versão real este formulário grava o imóvel no Supabase e dispara o webhook do n8n.');">
+        <div class="form-grid">
+          <div class="form-group"><label>Título do anúncio</label><input required placeholder="Ex.: Casa alto padrão no Boqueirão"></div>
+          <div class="form-group"><label>Código interno</label><input placeholder="Gerado automaticamente"></div>
+          <div class="form-group"><label>Tipo de imóvel</label><select><option>Apartamento</option><option>Casa</option><option>Casa em condomínio</option><option>Comercial</option><option>Terreno</option></select></div>
+          <div class="form-group"><label>Negociação</label><select><option>Venda</option><option>Locação</option></select></div>
+          <div class="form-group"><label>Preço (R$)</label><input type="number" required></div>
+          <div class="form-group"><label>Área (m²)</label><input type="number" required></div>
+          <div class="form-group"><label>Dormitórios</label><input type="number" min="0"></div>
+          <div class="form-group"><label>Vagas</label><input type="number" min="0"></div>
+          <div class="form-group"><label>Bairro</label><input required></div>
+          <div class="form-group"><label>Cidade</label><input value="Passo Fundo - RS"></div>
+          <div class="form-group span-2"><label>Descrição</label><textarea rows="4"></textarea></div>
+          <div class="form-group span-2"><label>Fotos</label><div class="upload-box">Arraste as imagens aqui — vão para o Supabase Storage</div></div>
+          <div class="form-group span-2"><label>Vídeo / foto 360° (tour 3D)</label><div class="upload-box">Envie um vídeo MP4 ou uma foto panorâmica equiretangular (Pannellum)</div></div>
+          <div class="form-group span-2">
+            <label>Onde este imóvel deve aparecer no site?</label>
+            <div class="placement-map">
+              <div class="placement-grid">
+                <div class="placement-slot is-selected">Destaque Venda · 1</div>
+                <div class="placement-slot">Destaque Venda · 2</div>
+                <div class="placement-slot">Destaque Venda · 3</div>
+                <div class="placement-slot">Destaque Locação · 1</div>
+                <div class="placement-slot">Destaque Locação · 2</div>
+                <div class="placement-slot">Só na busca geral</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:26px">
+          <button class="btn btn-primary" type="submit">Salvar imóvel</button>
+          <button class="btn btn-outline" type="reset">Limpar</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

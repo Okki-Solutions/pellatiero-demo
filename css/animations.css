@@ -1,0 +1,38 @@
+/* =========================================================
+   PELLATIERO IMÓVEIS — animations.css
+   Micro-animações e transições reutilizáveis
+   ========================================================= */
+
+/* Hover das fotos e cards (transform já é leve o suficiente para
+   ficar declarado no próprio componente; aqui ficam as animações
+   "de verdade", com @keyframes) */
+.property-card{transition:transform .22s ease, box-shadow .22s ease;}
+.property-card:hover{transform:translateY(-6px);box-shadow:0 26px 50px -22px rgba(16,26,12,.4);}
+.card-media img{transition:transform .5s ease;}
+.property-card:hover .card-media img{transform:scale(1.08);}
+.cat-card{transition:border-color .2s ease, transform .2s ease, background .2s ease;}
+.cat-card:hover{border-color:var(--moss-700);transform:translateY(-4px);background:var(--moss-50);}
+.main-nav a{transition:background .18s ease, color .18s ease;}
+.main-nav a:hover,.main-nav a.active{background:rgba(255,255,255,.12);color:var(--white);}
+.icon-link{transition:background .18s ease;}
+.icon-link:hover{background:rgba(255,255,255,.14);}
+
+/* Botão do WhatsApp com pulso animado */
+.wa-float{
+  position:fixed;right:22px;bottom:22px;z-index:70;width:60px;height:60px;border-radius:999px;
+  background:#1f3016;color:#fff;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 14px 30px -8px rgba(16,26,12,.6);
+}
+.wa-float::before{
+  content:"";position:absolute;inset:0;border-radius:999px;background:#3a542b;
+  animation:pulse 2.4s ease-out infinite;z-index:-1;
+}
+@keyframes pulse{0%{transform:scale(1);opacity:.7;}100%{transform:scale(1.9);opacity:0;}}
+
+/* Entrada suave de seções (usada opcionalmente via JS: adiciona .in-view) */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease;}
+.reveal.in-view{opacity:1;transform:translateY(0);}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important;transition-duration:.001ms !important;}
+}
